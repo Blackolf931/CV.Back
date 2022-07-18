@@ -27,7 +27,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore CV/CV.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore AIS/AIS.sln
+      run: dotnet build --configuration Release --no-restore CV/CV.sln
     - name: Test
       run: dotnet test --no-build --configuration Release --verbosity normal CV/CV.sln
     - name: sonarscan-dotnet
