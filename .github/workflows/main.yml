@@ -34,7 +34,7 @@ jobs:
       uses: highbyte/sonarscan-dotnet@v2.1.2
       with:
         sonarProjectKey: Blackolf931_CV.Back
-        sonarProjectName: CV
+        sonarProjectName: CV.Back
         sonarOrganization: Blackolf931
         dotnetBuildArguments: --configuration Release CV/CV.sln
         dotnetTestArguments: --no-build --configuration Release --verbosity normal CV/CV.sln --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
