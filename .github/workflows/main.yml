@@ -25,11 +25,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nuget-
     - name: Restore dependencies
-      run: dotnet restore AIS/AIS.sln
+      run: dotnet restore CV/CV.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore AIS/AIS.sln
+      run: dotnet build --configuration Release --no-restore CV/CV.sln
     - name: Test
-      run: dotnet test --no-build --configuration Release --verbosity normal AIS/AIS.sln
+      run: dotnet test --no-build --configuration Release --verbosity normal CV/CV.sln
     - name: sonarscan-dotnet
       uses: highbyte/sonarscan-dotnet@v2.1.2
       with:
