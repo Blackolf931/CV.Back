@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CV.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220719104221_AddStudentEntity")]
-    partial class AddStudentEntity
+    [Migration("20220719105838_AddEmployeeEntity")]
+    partial class AddEmployeeEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,7 +45,7 @@ namespace CV.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Employees");
                 });
 #pragma warning restore 612, 618
         }

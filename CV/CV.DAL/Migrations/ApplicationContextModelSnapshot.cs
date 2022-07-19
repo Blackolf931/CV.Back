@@ -43,7 +43,7 @@ namespace CV.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Employees");
                 });
 #pragma warning restore 612, 618
         }
