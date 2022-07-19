@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using CV.BLL.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CV.API.Controllers
 {
@@ -8,11 +10,11 @@ namespace CV.API.Controllers
         where TChangeModel : class
         where TModel : class
     {
-        private readonly IGenericService _genericService;
+        private readonly IGenericServices<TModel> _genericService;
         private readonly IMapper _mapper;
 
         public GenericController(
-            IGenericService genericService,
+            IGenericServices<TModel> genericService,
             IMapper mapper)
         {
             _mapper = mapper;
@@ -28,18 +30,17 @@ namespace CV.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id,
+        public async Task DeleteById(int id,
             CancellationToken token)
         {
-            await _genericService.Delete(id, token);
+            await _genericService.DeleteById(id, token);
         }
 
-        [HttpPut("{id}")]
-        public async Task<TShortModel> Update(TChangeModel tChangeModel, int id,
+        [HttpPut]
+        public virtual async Task<TShortModel> Update(TChangeModel tChangeModel,
             CancellationToken token)
         {
             var tModel = _mapper.Map<TModel>(tChangeModel);
-            tModel.Id = id;
             var result = await _genericService.Update(tModel, token);
 
             return _mapper.Map<TShortModel>(result);
