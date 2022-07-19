@@ -9,10 +9,10 @@ namespace CV.DAL.Entities
     public class EmployeeEntity
     {
         public int Id { get; set; }
-        #pragma warning disable
+#nullable disable
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
-        #pragma warning restore
+#nullable enable
     }
 }
