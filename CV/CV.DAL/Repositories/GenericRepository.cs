@@ -14,12 +14,12 @@ namespace CV.DAL.Repositories
             _dbSet = _context.Set<TEntity>();
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAll(CancellationToken token)
         {
             return await _dbSet.AsNoTracking().ToListAsync();
         }
 
-        public virtual async Task<TEntity> Create(TEntity tEntity)
+        public virtual async Task<TEntity> Create(TEntity tEntity, CancellationToken token)
         {
             await _dbSet.AddAsync(tEntity);
 
@@ -28,7 +28,7 @@ namespace CV.DAL.Repositories
             return tEntity;
         }
 
-        public virtual async Task<TEntity> Update(TEntity tEntity)
+        public virtual async Task<TEntity> Update(TEntity tEntity, CancellationToken token)
         {
             _dbSet.Update(tEntity);
 
@@ -37,12 +37,12 @@ namespace CV.DAL.Repositories
             return tEntity;
         }
 
-        public virtual async Task<TEntity> GetById(int id)
+        public virtual async Task<TEntity> GetById(int id, CancellationToken token)
         {
             return await _dbSet.FindAsync(new object[] { id });
         }
 
-        public virtual async Task Delete(TEntity tEntity)
+        public virtual async Task Delete(TEntity tEntity, CancellationToken token)
         {
             _dbSet.Remove(tEntity);
 

@@ -2,10 +2,10 @@
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        Task<IEnumerable<TEntity>> GetAll();
-        Task<TEntity> GetById(int id);
-        Task<TEntity> Update(TEntity item);
-        Task<TEntity> Create(TEntity entity);
-        Task Delete(TEntity item);
+        Task<IEnumerable<TEntity>> GetAll(CancellationToken token);
+        Task<TEntity> GetById(int id, CancellationToken token);
+        Task<TEntity> Update(TEntity item, CancellationToken token);
+        Task<TEntity> Create(TEntity entity, CancellationToken token);
+        Task Delete(TEntity item, CancellationToken token);
     }
 }
