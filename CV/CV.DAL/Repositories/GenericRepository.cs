@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CV.DAL.EF;
+using Microsoft.EntityFrameworkCore;
 
 namespace CV.DAL.Repositories
 {
@@ -15,7 +16,7 @@ namespace CV.DAL.Repositories
 
         public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
-            return _dbSet.AsNoTracking().ToListAsync();
+            return await _dbSet.AsNoTracking().ToListAsync();
         }
 
         public virtual async Task<TEntity> Create(TEntity tEntity)
@@ -27,9 +28,9 @@ namespace CV.DAL.Repositories
             return tEntity;
         }
 
-        public virtual async Task<TEntity> UpdateById(TEntity tEntity)
+        public virtual async Task<TEntity> Update(TEntity tEntity)
         {
-            await _dbSet.UpdateAsync(tEntity);
+            _dbSet.Update(tEntity);
 
             await _context.SaveChangesAsync();
 
@@ -41,11 +42,9 @@ namespace CV.DAL.Repositories
             return await _dbSet.FindAsync(new object[] { id });
         }
 
-        public virtual async Task DeleteById(int id)
+        public virtual async Task Delete(TEntity tEntity)
         {
-            var tEntity = await _dbSet.FindAsync(new object[] { id });
-
-            await _dbSet.RemoveAsync(tEntity);
+            _dbSet.Remove(tEntity);
 
             await _context.SaveChangesAsync();
         }
