@@ -2,30 +2,43 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+    - name: Cache
+      uses: actions/cache@v2.1.6
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
     - name: Restore dependencies
-      run: |
-           cd ./CV 
-           dotnet restore
+      run: dotnet restore CV/CV.sln
     - name: Build
-      run: |
-           cd ./CV
-           dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore CV/CV.sln
     - name: Test
-      run: |
-           cd ./CV
-           dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --configuration Release --verbosity normal CV/CV.sln
+    - name: sonarscan-dotnet
+      uses: highbyte/sonarscan-dotnet@v2.1.2
+      with:
+        sonarProjectKey: Blackolf931_CV.Back
+        sonarProjectName: CV
+        sonarOrganization: blackolf931-tsp
+        dotnetBuildArguments: --configuration Release CV/CV.sln
+        dotnetTestArguments: --no-build --configuration Release --verbosity normal CV/CV.sln --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx"
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
