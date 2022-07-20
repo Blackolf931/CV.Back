@@ -10,7 +10,7 @@ namespace CV.API.Controllers
     [Route("[Controller]")]
     public class ProjectController : GenericController<ProjectViewModel, ShortProjectViewModel, AddProjectViewModel, ProjectModel, UpdateProjectViewModel>
     {
-        public ProjectController(IGenericServices<ProjectModel> genericService, IMapper mapper) : base(genericService, mapper)
+        public ProjectController(IProjectServices projectService, IMapper mapper) : base(projectService, mapper)
         {
         }
     }
