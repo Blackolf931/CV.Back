@@ -9,6 +9,7 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
 builder.Services.AddBllServices(builder.Configuration);
 
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(typeof(CV.BLL.Mappers.MappingProfile), typeof(CV.API.Mappers.Mapper));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
