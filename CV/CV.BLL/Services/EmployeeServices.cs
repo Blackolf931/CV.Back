@@ -6,7 +6,7 @@ using CV.DAL.Interfaces;
 
 namespace CV.BLL.Services
 {
-    public class EmployeeServices : GenericServices<EmployeeModel, EmployeeEntity>
+    public class EmployeeServices : GenericServices<EmployeeModel, EmployeeEntity>, IEmployeeServices
     {
         public EmployeeServices(IGenericRepository<EmployeeEntity> genericRepository, IMapper mapper) : base(genericRepository, mapper)
         {
