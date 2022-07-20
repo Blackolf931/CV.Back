@@ -6,7 +6,7 @@ using CV.DAL.Interfaces;
 
 namespace CV.BLL.Services
 {
-    public class ProjectServices : GenericServices<ProjectModel, ProjectEntity>, IGenericServices<ProjectModel>
+    public class ProjectServices : GenericServices<ProjectModel, ProjectEntity>
     {
         public ProjectServices(IGenericRepository<ProjectEntity> genericRepository, IMapper mapper) : base(genericRepository, mapper)
         {
