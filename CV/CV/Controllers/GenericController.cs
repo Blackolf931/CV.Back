@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CV.API.Controllers
 {
-    public class GenericController<TViewModel, TShortModel, TAddModel, TModel, TUpdateModel> : Controller
+    [ApiController]
+    [Route("[Controller]")]
+    public class GenericController<TViewModel, TShortModel, TAddModel, TModel, TUpdateModel> : ControllerBase
         where TViewModel : class
         where TShortModel : class
         where TAddModel : class
