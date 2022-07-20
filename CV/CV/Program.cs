@@ -1,3 +1,4 @@
+using CV.API.Middlewares;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 
