@@ -14,4 +14,4 @@
 		<ProjectReference Include="..\CV.DAL\CV.DAL.csproj" />
 	</ItemGroup>
 
-		</Project>
+</Project>
