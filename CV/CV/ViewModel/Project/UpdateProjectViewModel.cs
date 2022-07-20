@@ -5,9 +5,9 @@
 #nullable disable
         public string Name { get; set; }
 
-        public TimeZoneInfo StartProject { get; set; }
+        public DateTime StartProject { get; set; }
 
-        public TimeZoneInfo EndProject { get; set; }
+        public DateTime EndProject { get; set; }
 
         public string Description { get; set; }
 
