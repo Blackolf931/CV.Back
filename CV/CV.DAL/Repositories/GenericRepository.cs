@@ -37,7 +37,7 @@ namespace CV.DAL.Repositories
             return tEntity;
         }
 
-        public virtual async Task<TEntity> GetById(int id, CancellationToken token)
+        public virtual async Task<TEntity?> GetById(int id, CancellationToken token)
         {
             return await _dbSet.FindAsync(new object[] { id });
         }
