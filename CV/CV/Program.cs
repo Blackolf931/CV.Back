@@ -1,5 +1,4 @@
 using Serilog;
-using CV.BLL.Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +6,7 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
     .ReadFrom.Configuration(context.Configuration)
     .ReadFrom.Services(services));
 
-builder.Services.AddBLLServices(builder.Configuration);
+builder.Services.AddBllServices(builder.Configuration);
 
 builder.Services.AddControllers();
 

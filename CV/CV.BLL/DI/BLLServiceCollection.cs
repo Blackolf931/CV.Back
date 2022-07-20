@@ -1,17 +1,16 @@
 ﻿using CV.BLL.Interfaces;
 using CV.BLL.Services;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace CV.BLL.Infraestructure
+namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class BLLServiceCollection
+    public static class BllServiceCollection
     {
-        public static void AddBLLServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddBllServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IEmployeeServices, EmployeeServices>();
             services.AddScoped<IProjectServices, ProjectServices>();
-            services.AddDALServices(configuration);
+            services.AddDalServices(configuration);
         }
     }
 }

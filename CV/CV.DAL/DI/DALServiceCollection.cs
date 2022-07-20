@@ -7,9 +7,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class DALServiceCollection
+    public static class DalServiceCollection
     {
-        public static void AddDALServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AddDalServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IGenericRepository<EmployeeEntity>, EmployeeRepository>();
             services.AddScoped<IGenericRepository<ProjectEntity>, ProjectRepository>();
