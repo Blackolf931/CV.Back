@@ -1,52 +1,54 @@
 ﻿using CV.DAL.EF;
+using CV.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CV.DAL.Repositories
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationContext _context;
-        protected readonly DbSet<TEntity> _dbSet;
+        protected readonly ApplicationContext context;
+
+        protected readonly DbSet<TEntity> dbSet;
 
         public GenericRepository(ApplicationContext context)
         {
-            _context = context;
-            _dbSet = _context.Set<TEntity>();
+            this.context = context;
+            dbSet = context.Set<TEntity>();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll(CancellationToken token)
         {
-            return await _dbSet.AsNoTracking().ToListAsync();
+            return await dbSet.AsNoTracking().ToListAsync(token);
         }
 
-        public virtual async Task<TEntity> Create(TEntity tEntity, CancellationToken token)
+        public virtual async Task<TEntity> Create(TEntity entity, CancellationToken token)
         {
-            await _dbSet.AddAsync(tEntity);
+            await dbSet.AddAsync(entity, token);
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync(token);
 
-            return tEntity;
+            return entity;
         }
 
-        public virtual async Task<TEntity> Update(TEntity tEntity, CancellationToken token)
+        public virtual async Task<TEntity> Update(TEntity entity, CancellationToken token)
         {
-            _dbSet.Update(tEntity);
+            dbSet.Update(entity);
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync(token);
 
-            return tEntity;
+            return entity;
         }
 
         public virtual async Task<TEntity?> GetById(int id, CancellationToken token)
         {
-            return await _dbSet.FindAsync(new object[] { id });
+            return await dbSet.FindAsync(new object[] { id }, token);
         }
 
-        public virtual async Task Delete(TEntity tEntity, CancellationToken token)
+        public virtual async Task Delete(TEntity entity, CancellationToken token)
         {
-            _dbSet.Remove(tEntity);
+            dbSet.Remove(entity);
 
-            await _context.SaveChangesAsync();
+            await context.SaveChangesAsync(token);
         }
     }
 }
