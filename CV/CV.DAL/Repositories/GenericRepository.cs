@@ -21,22 +21,22 @@ namespace CV.DAL.Repositories
             return await dbSet.AsNoTracking().ToListAsync(token);
         }
 
-        public virtual async Task<TEntity> Create(TEntity tEntity, CancellationToken token)
+        public virtual async Task<TEntity> Create(TEntity item, CancellationToken token)
         {
-            await dbSet.AddAsync(tEntity, token);
+            await dbSet.AddAsync(item, token);
 
             await context.SaveChangesAsync(token);
 
-            return tEntity;
+            return item;
         }
 
-        public virtual async Task<TEntity> Update(TEntity tEntity, CancellationToken token)
+        public virtual async Task<TEntity> Update(TEntity item, CancellationToken token)
         {
-            dbSet.Update(tEntity);
+            dbSet.Update(item);
 
             await context.SaveChangesAsync(token);
 
-            return tEntity;
+            return item;
         }
 
         public virtual async Task<TEntity?> GetById(int id, CancellationToken token)
@@ -44,9 +44,9 @@ namespace CV.DAL.Repositories
             return await dbSet.FindAsync(new object[] { id }, token);
         }
 
-        public virtual async Task Delete(TEntity tEntity, CancellationToken token)
+        public virtual async Task Delete(TEntity item, CancellationToken token)
         {
-            dbSet.Remove(tEntity);
+            dbSet.Remove(item);
 
             await context.SaveChangesAsync(token);
         }
