@@ -10,7 +10,7 @@ namespace CV.API.Controllers
     [Route("[Controller]")]
     public class EmployeeController : GenericController<EmployeeViewModel, ShortEmployeeViewModel, AddEmployeeViewModel, EmployeeModel, UpdateEmployeeViewModel>
     {
-        public EmployeeController(IEmployeeService<EmployeeModel> employeeService, IMapper mapper) : base(employeeService, mapper)
+        public EmployeeController(IEmployeeServices<EmployeeModel> employeeService, IMapper mapper) : base(employeeService, mapper)
         {
         }
     }
