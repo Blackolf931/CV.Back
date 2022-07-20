@@ -32,6 +32,15 @@ namespace CV.API.Controllers
             return _mapper.Map<IEnumerable<TViewModel>>(result);
         }
 
+
+        [HttpGet("{id}")]
+        public async Task<IEnumerable<TViewModel>> GetById(int id, CancellationToken token)
+        {
+            var result = await _genericService.GetById(id, token);
+
+            return _mapper.Map<IEnumerable<TViewModel>>(result);
+        }
+
         [HttpDelete("{id}")]
         public async Task DeleteById(int id,
             CancellationToken token)
