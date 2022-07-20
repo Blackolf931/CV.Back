@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CV.API.Controllers
 {
-    public class GenericController<TViewModel, TShortModel, TChangeModel, TModel> : Controller
+    public class GenericController<TViewModel, TShortModel, TAddModel, TModel, TUpdateModel> : Controller
         where TViewModel : class
         where TShortModel : class
-        where TChangeModel : class
+        where TAddModel : class
+        where TUpdateModel : class
         where TModel : class
     {
         private readonly IGenericServices<TModel> _genericService;
@@ -37,7 +38,7 @@ namespace CV.API.Controllers
         }
 
         [HttpPut]
-        public virtual async Task<TShortModel> Update(TChangeModel tChangeModel,
+        public virtual async Task<TShortModel> Update(TUpdateModel tChangeModel,
             CancellationToken token)
         {
             var tModel = _mapper.Map<TModel>(tChangeModel);
@@ -47,7 +48,7 @@ namespace CV.API.Controllers
         }
 
         [HttpPost]
-        public async Task<TShortModel> Create(TChangeModel tChangeModel,
+        public async Task<TShortModel> Create(TAddModel tChangeModel,
             CancellationToken token)
         {
             var tModel = _mapper.Map<TModel>(tChangeModel);
