@@ -13,6 +13,7 @@
 
         public string Environment { get; set; }
 #nullable enable
+
         public DateTime? EndProject { get; set; }
     }
 }
