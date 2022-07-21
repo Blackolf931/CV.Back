@@ -8,6 +8,8 @@ namespace CV.BLL.Models
 {
     public class SkillModel
     {
+        public int Id { get; set; }
+
 #nullable disable
         public int Experience { get; set; }
         public string Name { get; set; }
