@@ -9,6 +9,7 @@ namespace CV.DAL.EF
         public DbSet<ProjectEntity> Projects { get; set; } = null!;
         public DbSet<SkillEntity> Skills { get; set; } = null!;
         public DbSet<SkillGroupEntity> SkillGroups { get; set; } = null!;
+        public DbSet<SkillLevelEntity> SkillLevels { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
