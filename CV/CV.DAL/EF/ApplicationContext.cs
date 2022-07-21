@@ -1,4 +1,6 @@
 ﻿using CV.DAL.Entities;
+using CV.DAL.Entities.ForeignLanguage;
+using CV.DAL.Entities.Skill;
 using Microsoft.EntityFrameworkCore;
 
 namespace CV.DAL.EF

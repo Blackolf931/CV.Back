@@ -1,6 +1,6 @@
 ﻿using CV.DAL.Infraestructure;
 
-namespace CV.DAL.Entities
+namespace CV.DAL.Entities.Skill
 {
     public class SkillEntity : HasId
     {
