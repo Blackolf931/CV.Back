@@ -10,13 +10,13 @@ namespace CV.API.Mappers
         public Mapper()
         {
             CreateMap<EmployeeModel, EmployeeViewModel>().ReverseMap();
-            CreateMap<ProjectModel, ProjectViewModel>().ReverseMap();
+            CreateMap<ProjectViewModel, ProjectModel>().ReverseMap();
             CreateMap<AddEmployeeViewModel, EmployeeModel>().ReverseMap();
             CreateMap<ShortEmployeeViewModel, EmployeeModel>().ReverseMap();
             CreateMap<UpdateEmployeeViewModel, EmployeeModel>().ReverseMap();
             CreateMap<AddProjectViewModel, ProjectModel>().ReverseMap();
             CreateMap<UpdateProjectViewModel, ProjectModel>().ReverseMap();
-            CreateMap<ShortEmployeeViewModel, ProjectModel>().ReverseMap();
+            CreateMap<ShortProjectViewModel, ProjectModel>().ReverseMap();
         }
     }
 }
