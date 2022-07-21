@@ -11,6 +11,12 @@ namespace CV.BLL.Mappers
             CreateMap<EmployeeModel, EmployeeEntity>().ReverseMap();
 
             CreateMap<ProjectModel, ProjectEntity>().ReverseMap();
+
+            CreateMap<SkillModel, SkillEntity>().ReverseMap();
+
+            CreateMap<SkillLevelModel, SkillLevelEntity>().ReverseMap();
+
+            CreateMap<SkillGroupModel, SkillGroupEntity>().ReverseMap();
         }
     }
 }
