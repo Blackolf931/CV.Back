@@ -11,6 +11,7 @@ namespace CV.DAL.EF
         public DbSet<SkillGroupEntity> SkillGroups { get; set; } = null!;
         public DbSet<SkillLevelEntity> SkillLevels { get; set; } = null!;
         public DbSet<ForeignLanguageEntity> ForeignLanguages { get; set; } = null!;
+        public DbSet<LanguageEverydayTopicEntity> LanguageEverydayTopics { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
