@@ -8,6 +8,8 @@ namespace CV.BLL.Models
 {
     public class SkillGroupModel
     {
+        public int Id { get; set; }
+
 #nullable disable
         public string Name { get; set; }
 #nullable enable
