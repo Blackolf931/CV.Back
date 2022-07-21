@@ -10,6 +10,9 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<IEmployeeServices, EmployeeServices>();
             services.AddScoped<IProjectServices, ProjectServices>();
+            services.AddScoped<ISkillServices, SkillServices>();
+            services.AddScoped<ISkillGroupServices, SkillGroupServices>();
+            services.AddScoped<ISkillLevelServices, SkillLevelServices>();
             services.AddDalServices(configuration);
         }
     }
