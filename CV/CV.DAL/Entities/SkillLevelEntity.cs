@@ -1,6 +1,8 @@
-﻿namespace CV.DAL.Entities
+﻿using CV.DAL.Infraestructure;
+
+namespace CV.DAL.Entities
 {
-    public class SkillLevelEntity
+    public class SkillLevelEntity : HasId
     {
 #nullable disable
         public string Name { get; set; }
