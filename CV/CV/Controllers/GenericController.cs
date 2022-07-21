@@ -48,12 +48,12 @@ namespace CV.API.Controllers
             await _genericService.DeleteById(id, token);
         }
 
-        [HttpPut]
-        public virtual async Task<TShortModel> Update(TUpdateModel tChangeModel,
+        [HttpPut("{id}")]
+        public virtual async Task<TShortModel> Update(int id, TUpdateModel tChangeModel,
             CancellationToken token)
         {
             var tModel = _mapper.Map<TModel>(tChangeModel);
-            var result = await _genericService.Update(tModel, token);
+            var result = await _genericService.Update(id, tModel, token);
 
             return _mapper.Map<TShortModel>(result);
         }

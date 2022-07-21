@@ -8,7 +8,7 @@
 
         Task<TModel> Create(TModel model, CancellationToken ct);
 
-        Task<TModel> Update(TModel model, CancellationToken ct);
+        Task<TModel> Update(int id, TModel model, CancellationToken ct);
 
         Task DeleteById(int id, CancellationToken ct);
     }

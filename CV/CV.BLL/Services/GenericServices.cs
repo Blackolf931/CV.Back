@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
 using CV.BLL.Interfaces;
+using CV.DAL.Infraestructure;
 using CV.DAL.Interfaces;
 
 namespace CV.BLL.Services
 {
-    public class GenericServices<TModel, TEntity> : IGenericServices<TModel> where TModel : class where TEntity : class
+    public class GenericServices<TModel, TEntity> : IGenericServices<TModel>
+        where TModel : class
+        where TEntity : HasId
     {
         protected readonly IGenericRepository<TEntity> repository;
 
@@ -44,9 +47,12 @@ namespace CV.BLL.Services
             return mapper.Map<TModel>(resultEntity);
         }
 
-        public async Task<TModel> Update(TModel model, CancellationToken ct)
+        public async Task<TModel> Update(int id, TModel model, CancellationToken ct)
         {
-            var resultEntity = await repository.Update(mapper.Map<TEntity>(model), ct);
+            var entity = mapper.Map<TEntity>(model);
+            entity.Id = id;
+
+            var resultEntity = await repository.Update(entity, ct);
 
             return mapper.Map<TModel>(resultEntity);
         }
