@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CV.DAL.Infraestructure;
 
 namespace CV.DAL.Entities
 {
-    public class EmployeeEntity
+    public class EmployeeEntity : HasId
     {
-        public int Id { get; set; }
 #nullable disable
         public string Name { get; set; }
         public string Surname { get; set; }
