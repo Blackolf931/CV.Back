@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CV.BLL.Models
+namespace CV.BLL.Models.Skill
 {
     public class SkillGroupModel
     {

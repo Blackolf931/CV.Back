@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CV.BLL.Models
+﻿namespace CV.API.ViewModel.SkillViewModels.Skill
 {
-    public class SkillModel
+    public class SkillViewModel
     {
         public int Id { get; set; }
-
 #nullable disable
         public int Experience { get; set; }
         public string Name { get; set; }

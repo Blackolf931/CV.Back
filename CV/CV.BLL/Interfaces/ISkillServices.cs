@@ -1,4 +1,4 @@
-﻿using CV.BLL.Models;
+﻿using CV.BLL.Models.Skill;
 
 namespace CV.BLL.Interfaces
 {
