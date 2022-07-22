@@ -1,4 +1,4 @@
-﻿namespace CV.API.ViewModel.SkillLevel
+﻿namespace CV.API.ViewModel.Skill.SkillLevel
 {
     public class ShortSkillLevelViewModel
     {

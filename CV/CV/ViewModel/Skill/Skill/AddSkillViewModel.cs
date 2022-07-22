@@ -1,4 +1,4 @@
-﻿namespace CV.API.ViewModel.Skill
+﻿namespace CV.API.ViewModel.Skill.Skill
 {
     public class AddSkillViewModel
     {

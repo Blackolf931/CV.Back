@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CV.BLL.Interfaces;
-using CV.BLL.Models;
+using CV.BLL.Models.Skill;
 using CV.DAL.Entities.Skill;
 using CV.DAL.Interfaces;
 

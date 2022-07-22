@@ -1,8 +1,7 @@
-﻿namespace CV.API.ViewModel.Skill
+﻿namespace CV.API.ViewModel.Skill.Skill
 {
-    public class SkillViewModel
+    public class UpdateSkillViewModel
     {
-        public int Id { get; set; }
 #nullable disable
         public int Experience { get; set; }
         public string Name { get; set; }

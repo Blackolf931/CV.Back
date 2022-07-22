@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using CV.API.ViewModel.Employee;
 using CV.API.ViewModel.Project;
-using CV.API.ViewModel.Skill;
-using CV.API.ViewModel.SkillGroup;
-using CV.API.ViewModel.SkillLevel;
+using CV.API.ViewModel.Skill.Skill;
+using CV.API.ViewModel.Skill.SkillGroup;
+using CV.API.ViewModel.Skill.SkillLevel;
 using CV.BLL.Models;
+using CV.BLL.Models.Skill;
 
 namespace CV.API.Mappers
 {

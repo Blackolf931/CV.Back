@@ -1,6 +1,6 @@
-﻿namespace CV.API.ViewModel.SkillGroup
+﻿namespace CV.API.ViewModel.Skill.SkillGroup
 {
-    public class AddSkillGroupViewModel
+    public class UpdateSkillGroupViewModel
     {
 #nullable disable
         public string Name { get; set; }
