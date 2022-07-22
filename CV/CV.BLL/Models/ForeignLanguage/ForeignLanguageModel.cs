@@ -1,4 +1,4 @@
-﻿namespace CV.BLL.Models
+﻿namespace CV.BLL.Models.ForeignLanguage
 {
     public class ForeignLanguageModel
     {
