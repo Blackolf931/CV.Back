@@ -1,8 +1,10 @@
 ﻿using CV.DAL.EF;
 using CV.DAL.Entities;
+using CV.DAL.Entities.ForeignLanguage;
 using CV.DAL.Entities.Skill;
 using CV.DAL.Interfaces;
 using CV.DAL.Repositories;
+using CV.DAL.Repositories.ForeignLanguage;
 using CV.DAL.Repositories.Skill;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,9 +17,16 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<IGenericRepository<EmployeeEntity>, EmployeeRepository>();
             services.AddScoped<IGenericRepository<ProjectEntity>, ProjectRepository>();
+
             services.AddScoped<IGenericRepository<SkillEntity>, SkillRepository>();
             services.AddScoped<IGenericRepository<SkillLevelEntity>, SkillLevelRepository>();
             services.AddScoped<IGenericRepository<SkillGroupEntity>, SkillGroupRepository>();
+
+            services.AddScoped<IGenericRepository<ForeignLanguageEntity>, ForeignLanguageRepository>();
+            services.AddScoped<IGenericRepository<LanguageProfessionalTopicEntity>, LanguageProfessionalTopicRepository>();
+            services.AddScoped<IGenericRepository<LanguageEverydayTopicEntity>, LanguageEverydayTopicRepository>();
+            services.AddScoped<IGenericRepository<LanguageLevelEntity>, LanguageLevelRepository>();
+
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
