@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CV.BLL.Interfaces;
 using CV.BLL.Models;
-using CV.DAL.Entities;
+using CV.DAL.Entities.Skill;
 using CV.DAL.Interfaces;
 
 namespace CV.BLL.Services

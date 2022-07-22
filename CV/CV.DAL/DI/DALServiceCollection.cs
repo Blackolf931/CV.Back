@@ -1,5 +1,6 @@
 ﻿using CV.DAL.EF;
 using CV.DAL.Entities;
+using CV.DAL.Entities.Skill;
 using CV.DAL.Interfaces;
 using CV.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
