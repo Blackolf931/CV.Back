@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CV.BLL.Models;
 using CV.DAL.Entities;
+using CV.DAL.Entities.Skill;
 
 namespace CV.BLL.Mappers
 {

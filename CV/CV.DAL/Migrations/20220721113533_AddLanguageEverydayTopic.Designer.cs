@@ -4,6 +4,7 @@ using CV.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CV.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220721113533_AddLanguageEverydayTopic")]
+    partial class AddLanguageEverydayTopic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +46,7 @@ namespace CV.DAL.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("CV.DAL.Entities.ForeignLanguage.ForeignLanguageEntity", b =>
+            modelBuilder.Entity("CV.DAL.Entities.ForeignLanguageEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +62,7 @@ namespace CV.DAL.Migrations
                     b.ToTable("ForeignLanguages");
                 });
 
-            modelBuilder.Entity("CV.DAL.Entities.ForeignLanguage.LanguageEverydayTopicEntity", b =>
+            modelBuilder.Entity("CV.DAL.Entities.LanguageEverydayTopicEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,35 +73,6 @@ namespace CV.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LanguageEverydayTopics");
-                });
-
-            modelBuilder.Entity("CV.DAL.Entities.ForeignLanguage.LanguageLevelEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LanguageLevels");
-                });
-
-            modelBuilder.Entity("CV.DAL.Entities.ForeignLanguage.LanguageProfessionalTopicEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LanguageProfessionalTopics");
                 });
 
             modelBuilder.Entity("CV.DAL.Entities.ProjectEntity", b =>
@@ -130,7 +103,7 @@ namespace CV.DAL.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("CV.DAL.Entities.Skill.SkillEntity", b =>
+            modelBuilder.Entity("CV.DAL.Entities.SkillEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,7 +125,7 @@ namespace CV.DAL.Migrations
                     b.ToTable("Skills");
                 });
 
-            modelBuilder.Entity("CV.DAL.Entities.Skill.SkillGroupEntity", b =>
+            modelBuilder.Entity("CV.DAL.Entities.SkillGroupEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -168,7 +141,7 @@ namespace CV.DAL.Migrations
                     b.ToTable("SkillGroups");
                 });
 
-            modelBuilder.Entity("CV.DAL.Entities.Skill.SkillLevelEntity", b =>
+            modelBuilder.Entity("CV.DAL.Entities.SkillLevelEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

@@ -1,8 +1,8 @@
 ﻿using CV.DAL.Infraestructure;
 
-namespace CV.DAL.Entities
+namespace CV.DAL.Entities.ForeignLanguage
 {
-    public class SkillLevelEntity : HasId
+    public class LanguageLevelEntity:HasId
     {
 #nullable disable
         public string Name { get; set; }
