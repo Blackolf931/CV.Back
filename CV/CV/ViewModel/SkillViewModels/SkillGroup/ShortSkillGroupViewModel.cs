@@ -1,4 +1,4 @@
-﻿namespace CV.API.ViewModel.Skill.SkillGroup
+﻿namespace CV.API.ViewModel.SkillViewModels.SkillGroup
 {
     public class ShortSkillGroupViewModel
     {

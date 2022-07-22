@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using CV.API.ViewModel.Employee;
 using CV.API.ViewModel.Project;
-using CV.API.ViewModel.Skill.Skill;
-using CV.API.ViewModel.Skill.SkillGroup;
-using CV.API.ViewModel.Skill.SkillLevel;
+using CV.API.ViewModel.SkillViewModels.Skill;
+using CV.API.ViewModel.SkillViewModels.SkillGroup;
+using CV.API.ViewModel.SkillViewModels.SkillLevel;
 using CV.BLL.Models;
 using CV.BLL.Models.Skill;
 
