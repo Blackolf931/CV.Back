@@ -3,6 +3,7 @@ using CV.DAL.Entities;
 using CV.DAL.Entities.Skill;
 using CV.DAL.Interfaces;
 using CV.DAL.Repositories;
+using CV.DAL.Repositories.Skill;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
