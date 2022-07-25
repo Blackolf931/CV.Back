@@ -1,5 +1,7 @@
 ﻿using CV.BLL.Interfaces;
+using CV.BLL.Interfaces.ForeignLanguage;
 using CV.BLL.Services;
+using CV.BLL.Services.ForeignLanguage;
 using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -13,6 +15,10 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ISkillServices, SkillServices>();
             services.AddScoped<ISkillGroupServices, SkillGroupServices>();
             services.AddScoped<ISkillLevelServices, SkillLevelServices>();
+            services.AddScoped<IForeignLanguageServices, ForeignLanguageServices>();
+            services.AddScoped<ILanguageEverydayTopicServices, LanguageEverydayTopicServices>();
+            services.AddScoped<ILanguageLevelServices, LanguageLevelServices>();
+            services.AddScoped<ILanguageEverydayTopicServices, LanguageEverydayTopicServices>();
             services.AddDalServices(configuration);
         }
     }
